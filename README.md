@@ -1,2 +1,2 @@
 # c_learning
-Learning  C
+Learning  C (Syllabous Only)
