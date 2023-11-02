@@ -2,7 +2,7 @@
 #include"all_header.h"
 #include"custom.h"
 int main(){
-    printf("Hello \n");
+    printf("Hello \t");
     int num1 = 8;
     int num2 = 10;
     int result = sum(&num1, &num2);
