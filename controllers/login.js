@@ -13,10 +13,10 @@ router.get('/', function(req ,res){
 });
 
 var con = mysql.createConnection({
-    host: "",
-    user: "",
-    password: "",
-    database: "",
+    host: process.env.db_host,
+    user: process.env.db_usr,
+    password: process.env.db_pwd,
+    database: process.env.db_name,
 });
 
 router.use(session({

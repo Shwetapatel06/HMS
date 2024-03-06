@@ -3,10 +3,10 @@ var express = require("express");
 var router = express.Router();
 
 var con = mysql.createConnection({
-  host: "172.18.0.4",
-  user: "root",
-  password: "123",
-  database: "hospital",
+  host: process.env.db_host,
+  user: process.env.db_usr,
+  password: process.env.db_pwd,
+  database: process.env.db_name,
 });
 
 con.connect(function (err) {

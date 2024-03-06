@@ -1,6 +1,7 @@
 var express = require ('express');
 var session = require ('express-session');
 var cookie = require ('cookie-parser');
+require('dotenv').config();
 var path = require ('path');
 var ejs= require ('ejs');
 var multer = require('multer');
