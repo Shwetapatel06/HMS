@@ -46,15 +46,15 @@ router.get('/',function(req,res){
 router.use(bodyParser.urlencoded({extended : true}));
 router.use(bodyParser.json());
 
-router.get('/add_doctor',function(req,res){
+router.get('/add_patients',function(req,res){
     db.getalldept(function(err,result){
-        res.render('add_doctor.ejs',{list:result});
+        res.render('./patients/add_patients.ejs',{list:result});
     });
 
     
 });
 
-router.post('/add_doctor',upload.single("image"),function(req,res){
+router.post('/add_patients',upload.single("image"),function(req,res){
 
     db.add_doctor(req.body.first_name,req.body.last_name,req.body.email,req.body.dob,req.body.gender,req.body.address,req.body.phone,req.file?.filename,req.body.department,req.body.biography);
     if(db.add_doctor){
