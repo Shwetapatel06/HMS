@@ -56,11 +56,11 @@ router.get('/add_patients',function(req,res){
 
 router.post('/add_patients',upload.single("image"),function(req,res){
 
-    db.add_doctor(req.body.first_name,req.body.last_name,req.body.email,req.body.dob,req.body.gender,req.body.address,req.body.phone,req.file?.filename,req.body.department,req.body.biography);
+    db.add_patient(req.body.first_name,req.body.last_name,req.body.email,req.body.dob,req.body.gender,req.body.address,req.body.phone,req.file?.filename,req.body.department,req.body.biography);
     if(db.add_doctor){
-        console.log('1 doctor inserted');
+        console.log('1 patients inserted');
     }
-    res.redirect('add_doctor');
+    res.redirect('add_patients');
     });
 
     router.get('/edit_doctor/:id',function(req,res){
