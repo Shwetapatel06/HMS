@@ -60,6 +60,7 @@ app.use('/login' ,login);
 app.use('/home' , home);
 app.use('/signup' , signup);
 app.use('/doctors', doc_controller);
+app.use('/patients', require('./controllers/patients.js'));
 app.use('/resetpassword' ,reset);
 app.use('/setpassword',set);
 app.use('/employee',employee);

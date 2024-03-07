@@ -91,6 +91,10 @@ module.exports.getAllDoc = function (callback) {
   var query = "select * from doctor";
   con.query(query, callback);
 };
+module.exports.getAllPatient = function (callback) {
+  var query = "select * from patients";
+  con.query(query, callback);
+};
 
 module.exports.getDocbyId = function (id, callback) {
   var query = "select * from doctor where id =" + id;

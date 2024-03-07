@@ -143,10 +143,10 @@
 						<li>
                             <a href="/doctors"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="/patients"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="/appointment"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
                         </li>
                        
@@ -196,89 +196,93 @@
                 </div>
             </div>
         </div>
+        </div>
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <h4 class="page-title">Add Appointment</h4>
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">Patients</h4>
                     </div>
+                    <div class="col-sm-8 col-9 text-right m-b-20">
+                        <a href="http://localhost:3000/doctors/add_doctor" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Patients</a>
+                    </div>
+                    <form action="" method="POST">
+                    <div class="col-sm-6 col-md-12">
+                        <!-- <div class="form-group form-focus">
+                            <label class="focus-label" height=""></label>
+                            <input type="text" class="form-control floating" name="search" placeholder="" >
+                            
+                            <button formaction="/doctors/search" type="submit" class="btn btn-success">Search</button>
+                        </div> -->
+                    
+                    
+                    
+                      
+                    
+                </div>
+                    </form>
                 </div>
                 <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <form method="POST">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-										<label>Patient Name </label>
-										<input class="form-control" type="text" name="p_name" >
-									</div>
-                                </div>
-                               
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Department</label>
-                                        <select class="" name="department">
-                                            
-                                            <option value="Dentists">Dentists</option>
-                                            <option value="Neurology">Neurology</option>
-                                            <option value="Opthalmology">Opthalmology</option>
-                                            <option value="Orthopedics">Orthopedics</option>
-                                            <option value="Cancer Departmen">Cancer Department</option>
-                                            <option value="ENT Departmen">ENT Department</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Doctor Name</label>
-                                        <input type="text" name="d_name" id="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Date</label>
-                                        <div class="cal-icon">
-                                            <input type="text" class="form-control datetimepicker" name="date">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Time</label>
-                                        <div class="time-icon">
-                                            <input type="text" class="form-control" id="datetimepicker3" name="time">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Patient Email</label>
-                                        <input class="form-control" type="email" name="email">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Patient Phone Number</label>
-                                        <input class="form-control" type="text" name="phone">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
-                            <div class="m-t-20 text-center">
-                                <button class="btn btn-primary submit-btn">Create Appointment</button>
-                            </div>
-                        </form>
+                    <div class="col-md-12">
+						<div class="table-responsive">
+                            <table class="table table-striped custom-table">
+                                <thead>
+                                    <tr>
+                                        <!-- <th style="min-width:100px;">Image</th> -->
+                                        <th>ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+
+                                        <th>Email</th>
+                                        <th>DOB</th>
+                                        <th>Gender</th>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Department</th>
+                                        
+                                        <th class="text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (var i = 0; i < list.length; i++){ %>
+                                    <tr>
+                                        <!-- <td>
+											<img width="50" height="50" src="/assets/images/upload_images/<%= list[i].image %>" class="rounded-circle" alt=""> <h2></h2>
+										</td> -->
+                                        <td><%= list[i].id %></td>
+                                        <td><%= list[i].first_name %></td>
+                                        <td><%= list[i].last_name %></td>
+                                        <td><%= list[i].email %></td>
+                                        <td><%= list[i].dob %></td>
+                                        <td><%= list[i].gender %></td>
+                                        <td><%= list[i].address %></td>
+                                        <td><%= list[i].phone %></td>
+                                        <td><%= list[i].department %></td>
+                                        <td class="text-right">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="http://localhost:3000/doctors/edit_doctor/<%= list[i].id %>"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                    <a class="dropdown-item" href="http://localhost:3000/doctors/delete_doctor/<%= list[i].id %>" ><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        
+                                        <% } %>
+                                        
+                                       
+                                        
+                                    </tr>
+                                   
+									
+									
+									
+                                </tbody>
+                            </table>
+						</div>
                     </div>
                 </div>
-            </div>
-			<div class="notification-box">
+            <div class="notification-box">
                 <div class="msg-sidebar notifications msg-noti">
                     <div class="topnav-dropdown-header">
                         <span>Messages</span>
@@ -485,30 +489,28 @@
                     <div class="topnav-dropdown-footer">
                         <a href="chat.html">See all messages</a>
                     </div>
-					
                 </div>
             </div>
         </div>
+        
+	
+       
     </div>
     <div class="sidebar-overlay" data-reff=""></div>
     <script src="/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="/assets/js/popper.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/jquery.slimscroll.js"></script>
     <script src="/assets/js/select2.min.js"></script>
-	<script src="/assets/js/moment.min.js"></script>
-	<script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/assets/js/moment.min.js"></script>
+    <script src="/assets/typeahead.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script  type="text/javascript" src="/assets/js/typeahead.min.js"></script>
+    
     <script src="/assets/js/app.js"></script>
-	<script>
-            $(function () {
-                $('#datetimepicker3').datetimepicker({
-                    format: 'LT'
-
-                });
-            });
-     </script>
 </body>
 
 
-<!-- add-appointment24:07-->
+<!-- doctors23:17-->
 </html>
