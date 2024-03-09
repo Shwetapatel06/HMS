@@ -21,7 +21,7 @@ router.get('/',function(req,res){
     db.getAllDoc(function(err,result){
         db.getallappointment(function(err,result1){
         var total_doc = result.length ;
-        var appointment = result1.length;
+        var appointment = result1?.length;
          
         res.render('home.ejs',{doc : total_doc , doclist : result, appointment : appointment, applist : result1});
         });
